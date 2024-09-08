@@ -1,3 +1,3 @@
 export interface IAddGrid {
-    $gridc?: string
+  $gridc?: string;
 }

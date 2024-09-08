@@ -1,14 +1,13 @@
-import React, { FC } from 'react'
-import PMainCont from '../components/PMain/PMainCont'
+import React, { FC } from 'react';
+import PMainCont from '../components/PMain/PMainCont';
 
 //https://api.artic.edu/api/v1/artworks?page=2&limit=100
-const PMain:FC = () => {
-
+const PMain: FC = () => {
   return (
     <main>
-        <PMainCont/>
+      <PMainCont />
     </main>
-  )
-}
+  );
+};
 
-export default PMain
+export default PMain;

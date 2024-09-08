@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 *{
@@ -58,4 +58,4 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-`
+`;

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const StyledLoader = () => {
-  return (
-    <div>StyledLoader</div>
-  )
-}
+  return <div>StyledLoader</div>;
+};
 
-export default StyledLoader
+export default StyledLoader;
