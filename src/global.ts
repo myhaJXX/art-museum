@@ -1,10 +1,6 @@
-@font-face{    
-    font-family: Roboto;
-    src: url('./assets/fonts/Roboto.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-}
+import { createGlobalStyle } from "styled-components";
 
+export default createGlobalStyle`
 *{
     margin: 0;
     padding: 0;
@@ -37,20 +33,29 @@ p{
     font-weight: 400;
 }
 
-body{
-    font-family: Roboto;
-    display: grid;
-    grid-template-columns: 90%;
-    justify-content: center;
-}
-
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+a{
+    text-decoration: none;
+    color: #000;
 }
 
 button{
     border: none;
     background-color: transparent;
 }
+
+#root{
+    font-family: "Roboto", system-ui;
+    display: grid;
+    grid-template-columns: 90%;
+    justify-content: center;
+    gap: 30px;
+}
+
+header{
+    height: 50px;
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+`

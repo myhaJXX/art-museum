@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@fonts': path.resolve(__dirname, 'src/assets/fonts')
+      
     }
   },
   module: {
