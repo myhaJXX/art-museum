@@ -4,4 +4,5 @@ export interface IContainer {
   $justifyi?: string;
   $aligni?: string;
   $gap?: string;
+  $wrap?: string;
 }

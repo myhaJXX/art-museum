@@ -58,4 +58,12 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+
+path{
+    cursor: pointer;
+}
+
+svg{
+    cursor: pointer;
+}
 `;

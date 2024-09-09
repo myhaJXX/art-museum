@@ -1,11 +1,8 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { TZod } from '../../models/zod';
 import StyledCardBig from '../UI/StyledCardBig';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHeart as SolidHeart,
-  faHeartBroken,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHeart as SolidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as RegularHeart } from '@fortawesome/free-regular-svg-icons';
 import Store from '../../store/store';
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyledContainerD } from '../UI/StyledContainer';
 import { TZod } from '../../models/zod';
-import Card from '../Card/Card';
+import Card from '../Card/CardBig';
 
 type Props = {
   data: TZod[];
