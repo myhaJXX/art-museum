@@ -1,16 +1,33 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import Store from '../../store/store'
 
 const StyledLinkCss = styled.a`
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
 
-    &:hover{
-        
+    &::before{
+    left: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    background-color: #000;
+    transition: all .2s linear;
+    }
+
+    &:hover::before{
+        width: 100%;
+    }
+
+    >*{
+        cursor: pointer;
     }
 `
 
@@ -23,6 +40,7 @@ interface Iprops {
 
 const StyledLink:FC<Iprops> = ({title, icon, link, iconColor}) => {
     const nav = useNavigate()
+    const color = useContext(Store)?.colorMain
   return (
     <StyledLinkCss onClick={()=>nav(`${link}`)}>
         {icon && <FontAwesomeIcon icon={icon} color={iconColor}/>}
