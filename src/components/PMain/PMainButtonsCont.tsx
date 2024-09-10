@@ -16,14 +16,10 @@ const PMainButtonsCont = () => {
 
   useMemo(()=>{
     setMax(activeButton+1 > 3 ? activeButton : 3)
-  }, [Context.PageState.active])
-
-  useEffect(()=>{
-    console.log(max)
-  } , [max])
+  }, [activeButton])
 
   const checkActive = (id: number) => {
-    return activeButton == id;
+    return activeButton === id;
   };
 
   return (
@@ -33,7 +29,7 @@ const PMainButtonsCont = () => {
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max - 2)}
-        key={`s${max-2}`}
+        key='s1'
       />
       <StyledButton
         $id={max - 1}
