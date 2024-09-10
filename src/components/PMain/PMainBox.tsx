@@ -15,9 +15,9 @@ const PMainBox: FC<Props> = ({ data }) => {
       $justifyc="space-between"
       $gap="30px"
     >
-      {data.map((e: TZod) => (
-        <Card key={e.id} {...e} />
-      ))}
+      {data.map((e: TZod) => {
+        return e.image_id ? <Card key={e.id} {...e} /> : <></>
+      })}
     </StyledContainerD>
   );
 };

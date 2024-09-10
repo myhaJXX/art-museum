@@ -36,8 +36,8 @@ const PMainCont: FC = () => {
       </h3>
 
       {loading ? <StyledLoader /> : <PMainBox data={arts} />}
+      {loading || <PMainButtonsCont />}
 
-      <PMainButtonsCont />
     </StyledContainerS>
   );
 };

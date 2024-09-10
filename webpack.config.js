@@ -49,5 +49,6 @@ module.exports = {
         serveIndex: true,
     },
     historyApiFallback: true,
-},
+  },
+  performance: {hints: false}
 }

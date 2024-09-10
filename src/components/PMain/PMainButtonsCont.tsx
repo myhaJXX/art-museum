@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import StyledButton from '../UI/StyledButton';
 import Store from '../../store/store';
 import { StyledContainerD } from '../UI/StyledContainer';
@@ -14,6 +14,14 @@ const PMainButtonsCont = () => {
     setActiveButton(Context.PageState.active);
   }, [Context.PageState.active]);
 
+  useMemo(()=>{
+    setMax(activeButton+1 > 3 ? activeButton : 3)
+  }, [Context.PageState.active])
+
+  useEffect(()=>{
+    console.log(max)
+  } , [max])
+
   const checkActive = (id: number) => {
     return activeButton == id;
   };
@@ -25,30 +33,35 @@ const PMainButtonsCont = () => {
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max - 2)}
+        key={`s${max-2}`}
       />
       <StyledButton
         $id={max - 1}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max - 1)}
+        key='s2'
       />
       <StyledButton
         $id={max}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max)}
+        key='s3'
       />
       <StyledButton
         $id={max + 1}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max + 1)}
+        key='s4'
       />
       <StyledButton
         $id={max + 2}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max + 2)}
+        key='s5'
       />
     </StyledContainerD>
   );

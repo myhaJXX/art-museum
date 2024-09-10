@@ -10,7 +10,7 @@ import { missingText } from '../../utils/MissingText'
 const CardLittle:FC<TZod> = (data) => {
     useEffect(()=>{
         const ele = document.querySelector(`#CardDescription${data.id}`)
-        ele!.innerHTML = data.description ? `Description: \n${data.description}` : 'Description is missing...'
+        ele!.innerHTML = missingText(data.description, 'Description')
     }, [])
 
     const dispatch = useContext(Store)?.FeaturedDispatch
@@ -30,7 +30,7 @@ const CardLittle:FC<TZod> = (data) => {
             </StyledContainerD>
             <h4>Creator: {missingText(data.artist_title, 'Name')}</h4>
             <h4>Created in {missingText(data.place_of_origin, 'Place')} ({data.date_start} - {data.date_end})</h4>
-            <p id={'CardDescription'+data.id}>{missingText(data.description, 'Description')}</p>
+            <p id={'CardDescription'+data.id}></p>
         </div>
 
     </StyledCardLittle>

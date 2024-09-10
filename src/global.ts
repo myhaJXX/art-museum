@@ -19,7 +19,7 @@ h2{
 }
 
 h3{
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 500;
 }
 
@@ -54,6 +54,14 @@ button{
 header{
     height: 50px;
     border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer{
+    height: 50px;
+    border-top: 1px solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
