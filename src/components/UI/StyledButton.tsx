@@ -4,6 +4,13 @@ import { IButton } from '../../models/IButton';
 import Store from '../../store/store';
 
 const Button = styled.button<IButton>`
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid ${({$color}) => $color};
+  border-radius: 50%;
   padding: ${({ $padding }) => `${$padding[0]}px ${$padding[1]}px`};
   background-color: ${({ $bgCol }) => $bgCol};
   color: ${({ $color }) => $color};
@@ -15,6 +22,7 @@ const Button = styled.button<IButton>`
   &:hover {
     color: ${({ $bgCol }) => $bgCol};
     background-color: ${({ $color }) => $color};
+    border-color: ${({ $bgCol}) => $bgCol};
   }
 `;
 

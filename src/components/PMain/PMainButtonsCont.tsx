@@ -31,7 +31,7 @@ const PMainButtonsCont:FC<IProps>= ({pages}) => {
   }
 
   return (
-    <StyledContainerD $gap="10px">
+    <StyledContainerD $gap="10px" $justifyc='flex-end'>
       <StyledButton
         $id={max - 2}
         $bgCol={Context.colorMain}

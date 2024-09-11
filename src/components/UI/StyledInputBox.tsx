@@ -18,7 +18,7 @@ const InputCss = styled.input`
   border-right: 2px solid #CCC;
   border-left: 2px solid #CCC;
   outline: none;
-  cursor: pointer;
+  cursor: text;
 `
 
 const InputCssBox = styled.div<CSSInputProps>`

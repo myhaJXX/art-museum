@@ -17,6 +17,7 @@ const CSSSorting = styled.div<ICSSSorting>`
     box-shadow: 0px 0px 12px 1px #CCC;
     position: absolute;
     z-index: 2;
+    transition: all .2s linear;
     >*{
       display: flex;
       align-items: center;

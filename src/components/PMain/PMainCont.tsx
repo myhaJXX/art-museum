@@ -41,7 +41,7 @@ const PMainCont: FC = () => {
     <StyledContainerS $display="grid" $gap="10px">
       <h3 style={{ textAlign: 'center' }}>
         I THINK YOU 
-        <span style={{ color: Context.colorAdd }}>SHOULD</span> 
+        <span style={{ color: Context.colorAdd }}> SHOULD </span>
         TAKE A LOOK
       </h3>
 
