@@ -38,6 +38,7 @@ const Card = styled.article`
     max-width: 100%;
     width: auto;
     object-fit: contain;
+    cursor: pointer;
   }
 
   > div {

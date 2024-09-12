@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useMemo, useState, useEffect } from 'react';
 import { StyledContainerD } from '../UI/StyledContainer';
 import { TZod } from '../../models/zod';
 import Card from '../Card/CardBig';
+import { checkLocalId } from '../../utils/checkLocalId';
 
 type Props = {
   data: TZod[];
@@ -9,6 +10,15 @@ type Props = {
 };
 
 const PMainBox: FC<Props> = ({ data, sorting }) => {
+
+  const [totalFeatured, setTotalFeatured] = useState<number[]>([])
+
+  useMemo(()=>{
+    let eles = localStorage.getItem('featured')
+    let local:TZod[] = eles ? JSON.parse(eles) : []
+    let localIds:number[] = local.map(e => e.id)
+    setTotalFeatured([...localIds])
+  }, [])
 
   const [copy, setCopy] = useState<TZod[]>([])
 
@@ -48,8 +58,8 @@ const PMainBox: FC<Props> = ({ data, sorting }) => {
       $justifyc="space-between"
       $gap="30px"
     >
-      {copy.map((e: TZod) => {
-        return e.image_id ? <Card key={e.id+(e.artist_title || '')} {...e} /> : <></>
+      {data.map((e: TZod) => {
+        return e.image_id ? <Card key={e.id} {...e}  featured={totalFeatured}/> : <></>
       })}
     </StyledContainerD>
   );

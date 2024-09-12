@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { TZod } from '../../models/zod';
 import StyledCardBig from '../UI/StyledCardBig';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,15 +6,22 @@ import { faHeart as SolidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as RegularHeart } from '@fortawesome/free-regular-svg-icons';
 import Store from '../../store/store';
 import { useNavigate } from 'react-router-dom';
+import { checkLocalId } from '../../utils/checkLocalId';
 
-const Card: FC<TZod> = data => {
+const Card: FC<TZod & {featured: number[]}> = data => {
   const Context = useContext(Store);
   const nav = useNavigate()
   const [liked, setLiked] = useState<boolean>(false);
+
+  useEffect(()=>{
+    let bool: boolean = checkLocalId(data.id,data.featured)
+    if(bool) setLiked(true)
+  }, [])
+
   return (
     <StyledCardBig>
       <img
-      onClick={()=>nav(`/${data.id}`)}
+        onClick={()=>nav(`/${data.id}`)}
         loading="lazy"
         src={`https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`}
         alt=""
