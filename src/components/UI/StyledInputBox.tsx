@@ -1,9 +1,9 @@
-import React, { FC, useState, useEffect, useRef, useContext } from 'react'
+import React, { FC, useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { getFilteredArts } from '../../utils/getFilteredArts'
-import Store from '../../store/store'
 import { TZodFiltered } from '../../models/zodFilterd'
 import StyledSearchCard from './StyledSearchCard'
+import { useStore } from '../../utils/useStore'
 
 interface CSSInputProps {
   $color: string,
@@ -51,8 +51,7 @@ const InputCssBox = styled.div<CSSInputProps>`
 
 const StyledInputBox:FC = () => {
 
-  const Context = useContext(Store)
-  if (!Context) throw new Error('failed');
+  const Context = useStore()
 
   const [searchData, setSearchData] = useState<TZodFiltered[]>([])
 
@@ -76,7 +75,7 @@ const StyledInputBox:FC = () => {
     .then(data=>setSearchData(search ? [...data.data] : []))
   }
 
-  const unBlur = () => {
+  const unBlur = ():void => {
     setTimeout(()=>setActive(false), 250)
   }
 

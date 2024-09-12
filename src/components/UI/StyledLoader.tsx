@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Store from '../../store/store';
+import { useStore } from '../../utils/useStore';
 
 const animateCenter = keyframes`
   0% {
@@ -55,7 +55,7 @@ const Loader = styled.div`
 `
 
 const StyledLoader = () => {
-  const color = useContext(Store)?.colorMain
+  const color = useStore().colorMain
   return (
     <Loader color={color}>
       <div></div>

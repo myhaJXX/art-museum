@@ -1,20 +1,20 @@
 import React, { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-const calculateAl = (num: number, total: number): string => {
-  const number = Math.floor(num * 100) % total;
-  console.log(number);
-  switch (number) {
-    case 1:
-      return 'flex-start';
-    case 2:
-      return 'center';
-    case 3:
-      return 'flex-end';
-    default:
-      return '';
-  }
-};
+// const calculateAl = (num: number, total: number): string => {
+//   const number = Math.floor(num * 100) % total;
+//   console.log(number);
+//   switch (number) {
+//     case 1:
+//       return 'flex-start';
+//     case 2:
+//       return 'center';
+//     case 3:
+//       return 'flex-end';
+//     default:
+//       return '';
+//   }
+// };
 
 const Card = styled.article`
   align-self: center;

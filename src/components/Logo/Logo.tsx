@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import Store from '../../store/store';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useStore } from '../../utils/useStore';
 
 const Logo = () => {
-  const colorAdd = useContext(Store)?.colorAdd;
-  const nav = useNavigate()
+  const colorAdd:string = useStore().colorAdd
+  const nav:NavigateFunction = useNavigate()
   return (
       <h4 style={{ fontWeight: 600 }} onClick={()=>nav('/')}>
         <span style={{ color: colorAdd }}>Art</span> Museum

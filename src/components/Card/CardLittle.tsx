@@ -1,12 +1,12 @@
-import React, { FC, useContext, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import StyledCardLittle from '../UI/StyledCardLittle'
 import { TZod } from '../../models/zod'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { StyledContainerD } from '../UI/StyledContainer'
-import Store from '../../store/store'
 import { missingText } from '../../utils/MissingText'
-import { useNavigate } from 'react-router-dom'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+import { useStore } from '../../utils/useStore'
 
 const CardLittle:FC<TZod> = (data) => {
     useEffect(()=>{
@@ -14,10 +14,10 @@ const CardLittle:FC<TZod> = (data) => {
         ele!.innerHTML = missingText(data.description, 'Description')
     }, [])
 
-    const nav = useNavigate()
+    const nav:NavigateFunction = useNavigate()
 
-    const dispatch = useContext(Store)?.FeaturedDispatch
-    if(!dispatch) throw new Error('sss')
+    const dispatch = useStore().FeaturedDispatch
+
   return (
     <StyledCardLittle>
         <img

@@ -2,7 +2,6 @@ import React, { FC, useMemo, useState, useEffect } from 'react';
 import { StyledContainerD } from '../UI/StyledContainer';
 import { TZod } from '../../models/zod';
 import Card from '../Card/CardBig';
-import { checkLocalId } from '../../utils/checkLocalId';
 
 type Props = {
   data: TZod[];
@@ -14,7 +13,7 @@ const PMainBox: FC<Props> = ({ data, sorting }) => {
   const [totalFeatured, setTotalFeatured] = useState<number[]>([])
 
   useMemo(()=>{
-    let eles = localStorage.getItem('featured')
+    let eles:string | null = localStorage.getItem('featured')
     let local:TZod[] = eles ? JSON.parse(eles) : []
     let localIds:number[] = local.map(e => e.id)
     setTotalFeatured([...localIds])
@@ -23,7 +22,7 @@ const PMainBox: FC<Props> = ({ data, sorting }) => {
   const [copy, setCopy] = useState<TZod[]>([])
 
   useEffect(()=>{
-    let sorted = addSort(data)
+    let sorted:TZod[] = addSort(data)
     setCopy([...sorted])
   }, [sorting, data])
 
@@ -31,20 +30,20 @@ const PMainBox: FC<Props> = ({ data, sorting }) => {
     switch(sorting) {
 
       case 0: return data.sort((a,b)=>{
-        let titleA = a.title?.toLocaleLowerCase() || ''
-        let titleB = b.title?.toLocaleLowerCase() || ''
+        let titleA:string = a.title?.toLowerCase() || ''
+        let titleB:string = b.title?.toLowerCase() || ''
         return titleA.localeCompare(titleB)
       })
 
       case 1: return data.sort((a,b)=>{
-        let titleA = a.artist_title || ''
-        let titleB = b.artist_title || ''
+        let titleA:string = a.artist_title || ''
+        let titleB:string = b.artist_title || ''
         return titleA.localeCompare(titleB)
       })
 
       case 2: return data.sort((a,b)=>{
-        let n1 = a.date_start|| 0
-        let n2 = b.date_start || 0
+        let n1:number = a.date_start|| 0
+        let n2:number = b.date_start || 0
         return n1 - n2
       })
       default: return data

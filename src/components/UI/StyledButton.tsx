@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { IButton } from '../../models/IButton';
-import Store from '../../store/store';
+import { useStore } from '../../utils/useStore';
 
 const Button = styled.button<IButton>`
   height: 30px;
@@ -27,8 +27,7 @@ const Button = styled.button<IButton>`
 `;
 
 const StyledButton = (props: IButton) => {
-  const Context = useContext(Store);
-  if (!Context) throw new Error('Failed');
+  const Context = useStore();
 
   return (
     <Button

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const CSSSearchCard = styled.article`
@@ -21,7 +21,7 @@ interface IProps {
 }
 
 const StyledSearchCard:FC<IProps> = ({id, title}) => {
-    const nav = useNavigate()
+    const nav:NavigateFunction = useNavigate()
   return (
     <CSSSearchCard onClick={()=>nav(`/${id}`)}>
         {title}

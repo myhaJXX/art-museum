@@ -1,21 +1,20 @@
-import React, { FC, useContext } from 'react';
-import Store from '../../store/store';
+import React, { FC } from 'react';
 import { StyledContainerD } from '../UI/StyledContainer';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { IHeaderLink } from '../../models/IHeaderLink';
 import HeaderLogo from '../Logo/Logo';
 import StyledLink from '../UI/StyledLink';
+import { useStore } from '../../utils/useStore';
 
 const Header: FC = () => {
-  const colors = useContext(Store);
-  if (!colors) throw new Error('failed');
+  const store = useStore()
 
   const AnotherLinks: IHeaderLink[] = [
     { title: 'Featured', href: '/featured', icon: faHeart, color: '#FF0000' },
     { title: 'Home', href: '/', color: '#000' },
   ];
   return (
-    <header style={{ borderColor: colors.colorBg }}>
+    <header style={{ borderColor: store.colorBg }}>
       <HeaderLogo />
 
       <StyledContainerD $aligni="center" $gap="20px">

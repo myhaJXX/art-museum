@@ -6,23 +6,26 @@ import Store from '../../store/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'
+import { useStore } from '../../utils/useStore'
+import StyledLoader from '../UI/StyledLoader'
 
 interface IProps {
     info: TZod | undefined
 }
 
 const PArtSection:FC<IProps> = ({info}) => {
-    const Context = useContext(Store)
+    const Context = useStore()
 
     const [featured, setFeatured] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(true)
     useEffect(()=>{
-        let ele = document.querySelector(`#SingleArt${info?.id}`)
+        let ele:HTMLElement | null = document.querySelector(`#SingleArt${info?.id}`)
         if(ele) ele.innerHTML = `
             <p style="font-weight: 500;">Description:</p>
             ${missingText(info!.description, 'Description')}
         `
 
-        let eles = localStorage.getItem('featured')
+        let eles:string | null = localStorage.getItem('featured')
         let locale:TZod[] = eles ? JSON.parse(eles) : []
         let localIds:number[] = locale.map(e => e.id)
         setFeatured(localIds.includes(info!.id))
@@ -30,8 +33,8 @@ const PArtSection:FC<IProps> = ({info}) => {
 
     const changeFeatured = (act: 'add' | 'remove') =>{
         if(!info) throw new Error('failed')
-        if(act == 'add') Context?.FeaturedDispatch({type: 'ADD_FEATURED', payload: info})
-        else Context?.FeaturedDispatch({type: 'REMOVE_FEATURED', payload: info.id}) 
+        if(act == 'add') Context.FeaturedDispatch({type: 'ADD_FEATURED', payload: info})
+        else Context.FeaturedDispatch({type: 'REMOVE_FEATURED', payload: info.id}) 
     }
 
   return (
@@ -45,11 +48,13 @@ const PArtSection:FC<IProps> = ({info}) => {
             }}
             />
         </StyledContainerD>
+        {loading && <StyledLoader/>}
         <img style={{width: '300px', boxShadow: '0px 0px 12px 2px #CCC'}} 
         src={`https://www.artic.edu/iiif/2/${info?.image_id}/full/843,/0/default.jpg`} alt="" 
+        onLoad={()=>setLoading(false)}
         />
         <h4>
-            Created by <span style={{color: Context?.colorAdd}}>{missingText(info!.artist_title, 'Name')}</span> in {missingText(info!.place_of_origin, 'Place')} 
+            Created by <span style={{color: Context.colorAdd}}>{missingText(info!.artist_title, 'Name')}</span> in {missingText(info!.place_of_origin, 'Place')} 
             &nbsp;({missingText(info!.date_start!.toString(), 'Start')} - {missingText(info!.date_end!.toString(), 'Start')})
         </h4>
         <div style={{}} id={`SingleArt${info?.id}`}/>

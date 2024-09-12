@@ -8,13 +8,13 @@ import StyledLoader from '../UI/StyledLoader';
 import PMainButtonsCont from './PMainButtonsCont';
 import StyledInputBox from '../UI/StyledInputBox';
 import StyledSorting from '../UI/StyledSorting/StyledSorting';
+import { useStore } from '../../utils/useStore';
 
 const PMainCont: FC = () => {
-  const Context = useContext(Store);
-  if (!Context) throw new Error('failed');
+  const Context = useStore();
 
   const [arts, setArts] = useState<TZod[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [pages, setPages] = useState<number>(0)
 
   useEffect(() => {
@@ -32,8 +32,6 @@ const PMainCont: FC = () => {
       }
     });
   };
-
-  
 
   const [sorting, setSorting] = useState(0)
 

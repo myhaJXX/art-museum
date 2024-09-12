@@ -6,10 +6,10 @@ export const getInfoArt = async (id:number):Promise<TZod> =>{
         `https://api.artic.edu/api/v1/artworks/${id}`
     );
     if (response.status !== 200) {
-        throw new Error('Failed');
+        throw new Error('Axios is failed on page of art');
       } else {
-        let data = response.data.data;
-        let result = ZodScheme.parse(data)
+        let data:any = response.data.data;
+        let result:TZod = ZodScheme.parse(data)
         return result;
     }
 };

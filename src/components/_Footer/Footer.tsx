@@ -1,11 +1,11 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import HeaderLogo from '../Logo/Logo';
-import Store from '../../store/store';
 import StyledLink from '../UI/StyledLink';
 import { StyledContainerD } from '../UI/StyledContainer';
+import { useStore } from '../../utils/useStore';
 
-const Footer: FC = () => {
-  const color = useContext(Store)?.colorBg
+const Footer:FC = () => {
+  const color:string = useStore().colorBg
   return (
     <footer style={{borderColor: color}}>
       <HeaderLogo/>
