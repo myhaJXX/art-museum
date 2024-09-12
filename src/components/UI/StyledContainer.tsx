@@ -10,6 +10,10 @@ const StyledContainer = css<IContainer>`
   align-items: ${({ $aligni }) => $aligni};
   gap: ${({ $gap = '0px' }) => $gap};
   flex-wrap: ${({$wrap}) => $wrap};
+
+  p{
+    text-align: justify;
+  }
 `;
 const AddGrid = css<IAddGrid>`
   grid-template-columns: ${({ $gridc }) => $gridc};
