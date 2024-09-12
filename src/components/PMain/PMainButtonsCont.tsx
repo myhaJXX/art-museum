@@ -1,9 +1,13 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { FC, useContext, useEffect, useMemo, useState } from 'react';
 import StyledButton from '../UI/StyledButton';
 import Store from '../../store/store';
 import { StyledContainerD } from '../UI/StyledContainer';
 
-const PMainButtonsCont = () => {
+interface IProps {
+  pages: number
+}
+
+const PMainButtonsCont:FC<IProps>= ({pages}) => {
   const [activeButton, setActiveButton] = useState<number>(1);
   const [max, setMax] = useState<number>(3);
 
@@ -22,20 +26,26 @@ const PMainButtonsCont = () => {
     return activeButton === id;
   };
 
+  const checkHas = (id: number, totalPages: number) =>{
+    return id<totalPages
+  }
+
   return (
-    <StyledContainerD $gap="10px">
+    <StyledContainerD $gap="10px" $justifyc='flex-end'>
       <StyledButton
         $id={max - 2}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max - 2)}
-        key='s1'
+        $display={checkHas(max-2, pages)}
+        key={`s${max-2}`}
       />
       <StyledButton
         $id={max - 1}
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max - 1)}
+        $display={checkHas(max-2, pages)}
         key='s2'
       />
       <StyledButton
@@ -43,6 +53,7 @@ const PMainButtonsCont = () => {
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max)}
+        $display={checkHas(max-2, pages)}
         key='s3'
       />
       <StyledButton
@@ -50,6 +61,7 @@ const PMainButtonsCont = () => {
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max + 1)}
+        $display={checkHas(max-2, pages)}
         key='s4'
       />
       <StyledButton
@@ -57,6 +69,7 @@ const PMainButtonsCont = () => {
         $bgCol={Context.colorMain}
         $padding={[5, 5]}
         $active={checkActive(max + 2)}
+        $display={checkHas(max-2, pages)}
         key='s5'
       />
     </StyledContainerD>
