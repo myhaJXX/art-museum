@@ -6,12 +6,15 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { StyledContainerD } from '../UI/StyledContainer'
 import Store from '../../store/store'
 import { missingText } from '../../utils/MissingText'
+import { useNavigate } from 'react-router-dom'
 
 const CardLittle:FC<TZod> = (data) => {
     useEffect(()=>{
         const ele = document.querySelector(`#CardDescription${data.id}`)
         ele!.innerHTML = missingText(data.description, 'Description')
     }, [])
+
+    const nav = useNavigate()
 
     const dispatch = useContext(Store)?.FeaturedDispatch
     if(!dispatch) throw new Error('sss')
@@ -21,6 +24,7 @@ const CardLittle:FC<TZod> = (data) => {
             loading="lazy"
             src={`https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`}
             alt=""
+            onClick={()=>nav(`/${data.id}`)}
         />
 
         <div>

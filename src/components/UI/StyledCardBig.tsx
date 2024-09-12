@@ -41,7 +41,7 @@ const Card = styled.article`
     cursor: pointer;
   }
 
-  > div {
+  > div:has(svg) {
     opacity: 0;
     bottom: 10px;
     width: calc(100% - 20px);

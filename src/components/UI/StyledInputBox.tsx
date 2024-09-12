@@ -77,7 +77,7 @@ const StyledInputBox:FC = () => {
   }
 
   const unBlur = () => {
-    setTimeout(()=>setActive(false), 100)
+    setTimeout(()=>setActive(false), 250)
   }
 
   return (

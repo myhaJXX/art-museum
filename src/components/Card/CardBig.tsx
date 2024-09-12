@@ -7,11 +7,13 @@ import { faHeart as RegularHeart } from '@fortawesome/free-regular-svg-icons';
 import Store from '../../store/store';
 import { useNavigate } from 'react-router-dom';
 import { checkLocalId } from '../../utils/checkLocalId';
+import StyledLoader from '../UI/StyledLoader';
 
 const Card: FC<TZod & {featured: number[]}> = data => {
   const Context = useContext(Store);
   const nav = useNavigate()
   const [liked, setLiked] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
     let bool: boolean = checkLocalId(data.id,data.featured)
@@ -20,11 +22,13 @@ const Card: FC<TZod & {featured: number[]}> = data => {
 
   return (
     <StyledCardBig>
+      {loading && <StyledLoader/>}
       <img
         onClick={()=>nav(`/${data.id}`)}
         loading="lazy"
         src={`https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`}
         alt=""
+        onLoad={()=>setLoading(false)}
       />
       <div>
         <div>
