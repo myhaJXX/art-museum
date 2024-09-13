@@ -9,18 +9,18 @@ import { useStore } from '@utils/useStore';
 import ErrorPage from './pages/ErrorPage';
 
 const App: FC = () => {
-  const startDispatch = useStore().FeaturedDispatch
-  useEffect(()=>{
-    startDispatch({type: 'ADD_FEATURED_LOCAL', payload: []})
-  }, [])
+  const startDispatch = useStore().FeaturedDispatch;
+  useEffect(() => {
+    startDispatch({ type: 'ADD_FEATURED_LOCAL', payload: [] });
+  }, []);
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<PMain />} />
         <Route path="/featured" element={<PFeatured />} />
-        <Route path='/:id' element={<PArt/>}/>
-        <Route path='/*' element={<ErrorPage/>}/>
+        <Route path="/:id" element={<PArt />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

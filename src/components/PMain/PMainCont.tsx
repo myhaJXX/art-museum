@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect} from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { StyledContainerS } from '@UI/StyledContainer';
 import getArts from '@utils/getArts';
 import { TZod } from '@models/zod';
@@ -14,7 +14,7 @@ const PMainCont: FC = () => {
 
   const [arts, setArts] = useState<TZod[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [pages, setPages] = useState<number>(0)
+  const [pages, setPages] = useState<number>(0);
 
   useEffect(() => {
     getStartArts();
@@ -23,29 +23,29 @@ const PMainCont: FC = () => {
   const getStartArts = async (): Promise<void> => {
     setLoading(true);
     await getArts(Context.PageState.active).then(data => {
-      const result:TZod[] = data.data
+      const result: TZod[] = data.data;
       if (Array.isArray(result)) {
         setArts([...result]);
         setLoading(false);
-        setPages(data.pages)
+        setPages(data.pages);
       }
     });
   };
 
-  const [sorting, setSorting] = useState(0)
+  const [sorting, setSorting] = useState(0);
 
   return (
     <StyledContainerS $display="grid" $gap="10px">
       <h3 style={{ textAlign: 'center' }}>
-        I THINK YOU 
+        I THINK YOU
         <span style={{ color: Context.colorAdd }}> SHOULD </span>
         TAKE A LOOK
       </h3>
 
-      <StyledInputBox/>
-      <StyledSorting sorting={sorting} setSorting={setSorting}/>
+      <StyledInputBox />
+      <StyledSorting sorting={sorting} setSorting={setSorting} />
 
-      {loading ? <StyledLoader /> : <PMainBox data={arts} sorting={sorting}/>}
+      {loading ? <StyledLoader /> : <PMainBox data={arts} sorting={sorting} />}
       {loading || <PMainButtonsCont pages={pages} />}
     </StyledContainerS>
   );

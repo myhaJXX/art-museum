@@ -25,22 +25,23 @@ export const FeaturedReducer = (
 ): IFeatuerd => {
   switch (action.type) {
     case 'ADD_FEATURED':
-      addToLocal(action.payload)
+      addToLocal(action.payload);
       return { ...state, list: [...state['list'], action.payload] };
     case 'REMOVE_FEATURED':
-      removeFromLocale(action.payload)
+      removeFromLocale(action.payload);
       return {
         ...state,
         list: state['list'].filter(e => e.id != action.payload),
       };
-    
-      case 'ADD_FEATURED_LOCAL':{
-        const eles = localStorage.getItem('featured')
-        const localNow:TZod[] = eles ? JSON.parse(eles) : []
-        return {
-          ...state,
-          list: [...localNow]
-        };}
+
+    case 'ADD_FEATURED_LOCAL': {
+      const eles = localStorage.getItem('featured');
+      const localNow: TZod[] = eles ? JSON.parse(eles) : [];
+      return {
+        ...state,
+        list: [...localNow],
+      };
+    }
     default:
       return state;
   }

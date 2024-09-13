@@ -9,7 +9,7 @@ const Button = styled.button<IButton>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid ${({$color}) => $color};
+  border: 2px solid ${({ $color }) => $color};
   border-radius: 50%;
   padding: ${({ $padding }) => `${$padding[0]}px ${$padding[1]}px`};
   background-color: ${({ $bgCol }) => $bgCol};
@@ -17,12 +17,12 @@ const Button = styled.button<IButton>`
   box-shadow: 0px 0px 12px 1px #ccc;
   transition: all 0.4s linear;
   cursor: pointer;
-  display: ${({$display}) => $display ? 'block' : 'none'};
+  display: ${({ $display }) => ($display ? 'block' : 'none')};
 
   &:hover {
     color: ${({ $bgCol }) => $bgCol};
     background-color: ${({ $color }) => $color};
-    border-color: ${({ $bgCol}) => $bgCol};
+    border-color: ${({ $bgCol }) => $bgCol};
   }
 `;
 

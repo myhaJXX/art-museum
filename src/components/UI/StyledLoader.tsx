@@ -14,7 +14,7 @@ const animateCenter = keyframes`
   100% {
     margin-bottom: 15px;
   }
-`
+`;
 
 const animateBorders = keyframes`
   0% {
@@ -28,41 +28,42 @@ const animateBorders = keyframes`
   100% {
     margin-bottom: 0px;
   }
-`
+`;
 
 const Loader = styled.div`
   height: 30px;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
-  >div{
+  > div {
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: ${({color})=>color};
+    background-color: ${({ color }) => color};
   }
 
-  >div:nth-child(2){
+  > div:nth-child(2) {
     margin-bottom: 15px;
     animation: ${animateCenter} 0.7s linear infinite;
   }
 
-  >div:nth-child(1), >div:nth-child(3){
+  > div:nth-child(1),
+  > div:nth-child(3) {
     animation: ${animateBorders} 0.7s linear infinite;
   }
-`
+`;
 
 const StyledLoader = () => {
-  const color = useStore().colorMain
+  const color = useStore().colorMain;
   return (
     <Loader color={color}>
       <div></div>
       <div></div>
       <div></div>
     </Loader>
-  )
+  );
 };
 
 export default StyledLoader;

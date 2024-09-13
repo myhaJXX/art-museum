@@ -6,5 +6,5 @@ export interface IButton {
   $active: boolean;
   $color?: string;
   $bgCol?: string;
-  $display?: boolean
+  $display?: boolean;
 }

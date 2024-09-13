@@ -1,3 +1,3 @@
 export interface IPageParams {
-    id?: number
+  id?: number;
 }

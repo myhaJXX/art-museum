@@ -7,30 +7,30 @@ import { faHeart as RegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import StyledLoader from '@UI/StyledLoader';
 import { useStore } from '@utils/useStore';
-import {createRequire} from 'node:module'
-const require = createRequire(import.meta.url)
-const checkLocalId = require('@utils/checkLocalId')
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const checkLocalId = require('@utils/checkLocalId');
 
-const Card: FC<TZod & {featured: number[]}> = data => {
-  const Context = useStore()
-  const nav:NavigateFunction = useNavigate()
+const Card: FC<TZod & { featured: number[] }> = data => {
+  const Context = useStore();
+  const nav: NavigateFunction = useNavigate();
   const [liked, setLiked] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(()=>{
-    const bool: boolean = checkLocalId(data.id,data.featured)
-    if(bool) setLiked(true)
-  }, [])
+  useEffect(() => {
+    const bool: boolean = checkLocalId(data.id, data.featured);
+    if (bool) setLiked(true);
+  }, []);
 
   return (
     <StyledCardBig>
-      {loading && <StyledLoader/>}
+      {loading && <StyledLoader />}
       <img
-        onClick={()=>nav(`/${data.id}`)}
+        onClick={() => nav(`/${data.id}`)}
         loading="lazy"
         src={`https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`}
         alt=""
-        onLoad={()=>setLoading(false)}
+        onLoad={() => setLoading(false)}
       />
       <div>
         <div>
@@ -50,7 +50,7 @@ const Card: FC<TZod & {featured: number[]}> = data => {
           color={liked ? '#FF0000' : '#000'}
         />
       </div>
-      {liked &&
+      {liked && (
         <FontAwesomeIcon
           icon={SolidHeart}
           color="#FF0000"
@@ -62,7 +62,7 @@ const Card: FC<TZod & {featured: number[]}> = data => {
             });
           }}
         />
-      }
+      )}
     </StyledCardBig>
   );
 };

@@ -9,13 +9,13 @@ const StyledContainer = css<IContainer>`
   justify-items: ${({ $justifyi }) => $justifyi};
   align-items: ${({ $aligni }) => $aligni};
   gap: ${({ $gap = '0px' }) => $gap};
-  flex-wrap: ${({$wrap}) => $wrap};
+  flex-wrap: ${({ $wrap }) => $wrap};
 
-  p{
+  p {
     text-align: justify;
   }
 
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     justify-content: ${({ $justifycA }) => $justifycA};
   }
 `;

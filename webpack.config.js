@@ -1,5 +1,7 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import { createRequire, __dirname, module } from 'node:module';
+const require = createRequire(import.meta.url);
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.tsx'),
@@ -9,8 +11,8 @@ module.exports = {
       '@UI': path.resolve(__dirname, 'src/components/UI'),
       '@models': path.resolve(__dirname, 'src/models'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@utils': path.resolve(__dirname, 'src/utils')
-    }
+      '@utils': path.resolve(__dirname, 'src/utils'),
+    },
   },
   module: {
     rules: [
@@ -29,29 +31,29 @@ module.exports = {
       },
       {
         test: /\.(ttf|png|jpg|ico)$/,
-        loader: 'file-loader'
-      }
+        loader: 'file-loader',
+      },
     ],
   },
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'bundle.js',
-    clean: true
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
     }),
   ],
-  
-  devServer:{
+
+  devServer: {
     port: 3001,
     hot: 'only',
     static: {
-        directory: path.join(__dirname, './'),
-        serveIndex: true,
+      directory: path.join(__dirname, './'),
+      serveIndex: true,
     },
     historyApiFallback: true,
   },
-  performance: {hints: false}
-}
+  performance: { hints: false },
+};

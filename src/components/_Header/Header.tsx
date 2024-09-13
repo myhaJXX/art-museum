@@ -7,7 +7,7 @@ import StyledLink from '@UI/StyledLink';
 import { useStore } from '@utils/useStore';
 
 const Header: FC = () => {
-  const store = useStore()
+  const store = useStore();
 
   const AnotherLinks: IHeaderLink[] = [
     { title: 'Featured', href: '/featured', icon: faHeart, color: '#FF0000' },
@@ -19,7 +19,13 @@ const Header: FC = () => {
 
       <StyledContainerD $aligni="center" $gap="20px">
         {AnotherLinks.map((e, i) => (
-          <StyledLink title={e.title} link={e.href} iconColor={e.color} icon={e.icon} key={i}/>
+          <StyledLink
+            title={e.title}
+            link={e.href}
+            iconColor={e.color}
+            icon={e.icon}
+            key={i}
+          />
         ))}
       </StyledContainerD>
     </header>

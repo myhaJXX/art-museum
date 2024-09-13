@@ -10,12 +10,15 @@ export default tseslint.config(
         require: true,
         commonjs: true,
         es2021: true,
-        node: true
+        node: true,
+        __dirname: true,
       },
-      sourceType: 'script'
+      sourceType: 'script',
     },
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
+    ignores: ['webpack.config.js', 'build/', 'node_modules'],
   }
 );
