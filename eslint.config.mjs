@@ -6,13 +6,6 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   {
     languageOptions: {
-      globals: {
-        require: true,
-        commonjs: true,
-        es2021: true,
-        node: true,
-        __dirname: true,
-      },
       sourceType: 'script',
     },
     rules: {
