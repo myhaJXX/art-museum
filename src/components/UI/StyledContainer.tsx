@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { IContainer } from '../../models/IContainer';
-import { IAddGrid } from '../../models/IAddGrid';
+import { IContainer } from '@models/IContainer';
+import { IAddGrid } from '@models/IAddGrid';
 
 const StyledContainer = css<IContainer>`
   height: fit-content;
@@ -13,6 +13,10 @@ const StyledContainer = css<IContainer>`
 
   p{
     text-align: justify;
+  }
+
+  @media(max-width: 700px) {
+    justify-content: ${({ $justifycA }) => $justifycA};
   }
 `;
 const AddGrid = css<IAddGrid>`

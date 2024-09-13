@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TZod, ZodScheme } from '../models/zod';
+import { TZod, ZodScheme } from '@models/zod';
 
 type TResult = {pages: number; data: TZod[]}
 
@@ -11,8 +11,8 @@ const getArts = async (page: number): Promise<TResult> => {
     throw new Error('Axios is failed');
   } else {
     const pages:number = response.data.pagination.total_pages;
-    let data:any = response.data.data;
-    let result:TZod[] = data.map((e: any) => ZodScheme.parse(e));
+    const data:any = response.data.data;
+    const result:TZod[] = data.map((e: any) => ZodScheme.parse(e));
     return {pages, data:result};
   }
 };

@@ -63,8 +63,13 @@ footer{
     height: 50px;
     border-top: 1px solid;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+
+    >div{
+        flex-wrap: wrap;
+    }
 }
 
 path{

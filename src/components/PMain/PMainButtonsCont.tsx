@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import StyledButton from '../UI/StyledButton';
-import { StyledContainerD } from '../UI/StyledContainer';
-import { useStore } from '../../utils/useStore';
+import StyledButton from '@UI/StyledButton';
+import { StyledContainerD } from '@UI/StyledContainer';
+import { useStore } from '@utils/useStore';
 
 interface IProps {
   pages: number

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import CardLittle from '../components/Card/CardLittle'
 import { StyledContainerD } from '../components/UI/StyledContainer'
-import { useStore } from '../utils/useStore'
+import { useStore } from '@utils/useStore'
 
 const PFeatured:FC = () => {
     const items = useStore().FeaturedState.list

@@ -1,14 +1,14 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styled from 'styled-components'
 import StyledOption from './StyledOption'
-import { TSorts, TSortsId } from '../../../models/TSorts'
+import { TSorts, TSortsId } from '@models/TSorts'
 
 interface ICSSSorting {
     $active: boolean;
 }
 
 const CSSSorting = styled.div<ICSSSorting>`
-    right: 0;
+    right: 0px;
     height: ${({$active}) => $active ? '200px' : '50px'};
     width: 300px;
     border-radius: 5px;
@@ -23,6 +23,10 @@ const CSSSorting = styled.div<ICSSSorting>`
       align-items: center;
       padding-left: 10px;
       cursor: pointer;
+    }
+
+    @media(max-width: 600px) {
+      right: calc(50% - 150px);
     }
 `
 

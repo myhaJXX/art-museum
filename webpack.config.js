@@ -6,7 +6,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      
+      '@UI': path.resolve(__dirname, 'src/components/UI'),
+      '@models': path.resolve(__dirname, 'src/models'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@utils': path.resolve(__dirname, 'src/utils')
     }
   },
   module: {

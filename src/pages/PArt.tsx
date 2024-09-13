@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { IPageParams } from '../models/IPageParams'
-import { getInfoArt } from '../utils/getInfoArt'
-import { TZod } from '../models/zod'
+import { IPageParams } from '@models/IPageParams'
+import { getInfoArt } from '@utils/getInfoArt'
+import { TZod } from '@models/zod'
 import StyledLoader from '../components/UI/StyledLoader'
 import PArtSection from '../components/PArt/PArtSection'
 

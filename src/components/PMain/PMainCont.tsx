@@ -1,14 +1,13 @@
-import React, { FC, useContext, useState, useEffect} from 'react';
-import { StyledContainerS } from '../UI/StyledContainer';
-import getArts from '../../utils/getArts';
-import { TZod } from '../../models/zod';
-import Store from '../../store/store';
+import React, { FC, useState, useEffect} from 'react';
+import { StyledContainerS } from '@UI/StyledContainer';
+import getArts from '@utils/getArts';
+import { TZod } from '@models/zod';
 import PMainBox from './PMainBox';
-import StyledLoader from '../UI/StyledLoader';
+import StyledLoader from '@UI/StyledLoader';
 import PMainButtonsCont from './PMainButtonsCont';
-import StyledInputBox from '../UI/StyledInputBox';
-import StyledSorting from '../UI/StyledSorting/StyledSorting';
-import { useStore } from '../../utils/useStore';
+import StyledInputBox from '@UI/StyledInputBox';
+import StyledSorting from '@UI/StyledSorting/StyledSorting';
+import { useStore } from '@utils/useStore';
 
 const PMainCont: FC = () => {
   const Context = useStore();
@@ -24,7 +23,7 @@ const PMainCont: FC = () => {
   const getStartArts = async (): Promise<void> => {
     setLoading(true);
     await getArts(Context.PageState.active).then(data => {
-      let result:TZod[] = data.data
+      const result:TZod[] = data.data
       if (Array.isArray(result)) {
         setArts([...result]);
         setLoading(false);

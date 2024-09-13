@@ -1,13 +1,14 @@
-import React, { act, FC, useContext, useEffect, useState } from 'react'
-import { StyledContainerD, StyledContainerS } from '../UI/StyledContainer'
-import { TZod } from '../../models/zod'
-import { missingText } from '../../utils/MissingText'
-import Store from '../../store/store'
+import React, { FC, useEffect, useState } from 'react'
+import { StyledContainerD, StyledContainerS } from '@UI/StyledContainer'
+import { TZod } from '@models/zod'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'
-import { useStore } from '../../utils/useStore'
-import StyledLoader from '../UI/StyledLoader'
+import { useStore } from '@utils/useStore'
+import StyledLoader from '@UI/StyledLoader'
+import {createRequire} from 'node:module'
+const require = createRequire(import.meta.url)
+const missingText = require('@utils/MissingText')
 
 interface IProps {
     info: TZod | undefined
@@ -19,15 +20,15 @@ const PArtSection:FC<IProps> = ({info}) => {
     const [featured, setFeatured] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(true)
     useEffect(()=>{
-        let ele:HTMLElement | null = document.querySelector(`#SingleArt${info?.id}`)
+        const ele:HTMLElement | null = document.querySelector(`#SingleArt${info?.id}`)
         if(ele) ele.innerHTML = `
             <p style="font-weight: 500;">Description:</p>
             ${missingText(info!.description, 'Description')}
         `
 
-        let eles:string | null = localStorage.getItem('featured')
-        let locale:TZod[] = eles ? JSON.parse(eles) : []
-        let localIds:number[] = locale.map(e => e.id)
+        const eles:string | null = localStorage.getItem('featured')
+        const locale:TZod[] = eles ? JSON.parse(eles) : []
+        const localIds:number[] = locale.map(e => e.id)
         setFeatured(localIds.includes(info!.id))
     }, [])
 

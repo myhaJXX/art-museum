@@ -42,6 +42,16 @@ const Card = styled.article`
             transform: scale(1.1);
         }
     }
+
+    @media(max-width: 1200px){
+        width: 100%;
+    }
+
+    @media(max-width: 800px){
+        p{
+            display: none;
+        }
+    }
 `
 
 const StyledCardLittle:FC<PropsWithChildren<unknown>> = ({children}) => {

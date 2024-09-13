@@ -5,8 +5,8 @@ import Header from './components/_Header/Header';
 import Footer from './components/_Footer/Footer';
 import PFeatured from './pages/PFeatured';
 import PArt from './pages/PArt';
-import Store from './store/store';
-import { useStore } from './utils/useStore';
+import { useStore } from '@utils/useStore';
+import ErrorPage from './pages/ErrorPage';
 
 const App: FC = () => {
   const startDispatch = useStore().FeaturedDispatch
@@ -20,6 +20,7 @@ const App: FC = () => {
         <Route path="/" element={<PMain />} />
         <Route path="/featured" element={<PFeatured />} />
         <Route path='/:id' element={<PArt/>}/>
+        <Route path='/*' element={<ErrorPage/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import HeaderLogo from '../Logo/Logo';
-import StyledLink from '../UI/StyledLink';
-import { StyledContainerD } from '../UI/StyledContainer';
-import { useStore } from '../../utils/useStore';
+import StyledLink from '@UI/StyledLink';
+import { StyledContainerD } from '@UI/StyledContainer';
+import { useStore } from '@utils/useStore';
 
 const Footer:FC = () => {
   const color:string = useStore().colorBg
@@ -10,7 +10,7 @@ const Footer:FC = () => {
     <footer style={{borderColor: color}}>
       <HeaderLogo/>
 
-      <StyledContainerD $gap='20px'>
+      <StyledContainerD $gap='10px'>
         <StyledLink link='/featured' title='featured'/>
         <StyledLink link='/terms' title='Terms of service'/>
         <StyledLink link='/privacy' title='Privacy policy'/>

@@ -34,13 +34,13 @@ export const FeaturedReducer = (
         list: state['list'].filter(e => e.id != action.payload),
       };
     
-      case 'ADD_FEATURED_LOCAL':
-        let eles = localStorage.getItem('featured')
-        let localNow:TZod[] = eles ? JSON.parse(eles) : []
+      case 'ADD_FEATURED_LOCAL':{
+        const eles = localStorage.getItem('featured')
+        const localNow:TZod[] = eles ? JSON.parse(eles) : []
         return {
           ...state,
           list: [...localNow]
-        };
+        };}
     default:
       return state;
   }

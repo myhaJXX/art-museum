@@ -1,9 +1,10 @@
 import React, { FC, useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { getFilteredArts } from '../../utils/getFilteredArts'
-import { TZodFiltered } from '../../models/zodFilterd'
+import { getFilteredArts } from '@utils/getFilteredArts'
+import { TZodFiltered } from '@models/zodFilterd'
 import StyledSearchCard from './StyledSearchCard'
-import { useStore } from '../../utils/useStore'
+import { useStore } from '@utils/useStore'
+import { useForm } from 'react-hook-form'
 
 interface CSSInputProps {
   $color: string,
@@ -19,6 +20,10 @@ const InputCss = styled.input`
   border-left: 2px solid #CCC;
   outline: none;
   cursor: text;
+
+  @media(max-width: 600px){
+    width: 350px;
+  }
 `
 
 const InputCssBox = styled.div<CSSInputProps>`
@@ -51,6 +56,10 @@ const InputCssBox = styled.div<CSSInputProps>`
 
 const StyledInputBox:FC = () => {
 
+  const { register, handleSubmit, formState: { errors } } = useForm<{
+    query:string
+}>();
+
   const Context = useStore()
 
   const [searchData, setSearchData] = useState<TZodFiltered[]>([])
@@ -60,7 +69,8 @@ const StyledInputBox:FC = () => {
   const changeSearch = (str: string):void=>{
     if(timeOutRef.current) clearTimeout(timeOutRef.current)
     timeOutRef.current = setTimeout(()=>{
-      setSearch(str)
+      if(str) setSearch(str)
+      else setActive(false)
     }, 1000)
   }
 
@@ -81,10 +91,19 @@ const StyledInputBox:FC = () => {
 
   return (
     <InputCssBox $color={Context.colorAdd} $active={active}>
-      <InputCss placeholder='Enter a article' 
-      onChange={(e)=>changeSearch(e.target.value)} 
-      onFocus={()=>setActive(true)} onBlur={()=>unBlur()}
-    />
+      <form>
+        <InputCss placeholder='Enter a article' 
+        onFocus={()=>setActive(true)}
+        {...register("query", 
+          {
+            required: "Please enter a search query",
+            onChange: handleSubmit((data)=>changeSearch(data.query)),
+            onBlur: ()=>unBlur(),
+          }
+        )}
+        />
+         {errors.query && <p>{errors.query.message}</p>}
+      </form>
       <div>
         {searchData.map((e,i)=><StyledSearchCard id={e.id} title={e.title} key={i}/>)}
       </div>

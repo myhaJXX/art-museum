@@ -1,12 +1,14 @@
 import React, { FC, useEffect } from 'react'
 import StyledCardLittle from '../UI/StyledCardLittle'
-import { TZod } from '../../models/zod'
+import { TZod } from '@models/zod'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import { StyledContainerD } from '../UI/StyledContainer'
-import { missingText } from '../../utils/MissingText'
+import { StyledContainerD } from '@UI/StyledContainer'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
-import { useStore } from '../../utils/useStore'
+import { useStore } from '@utils/useStore'
+import {createRequire} from 'node:module'
+const require = createRequire(import.meta.url)
+const missingText = require('@utils/MissingText')
 
 const CardLittle:FC<TZod> = (data) => {
     useEffect(()=>{

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TZodFiltered, ZodSchemeFiltered } from "../models/zodFilterd";
+import { TZodFiltered, ZodSchemeFiltered } from "@models/zodFilterd";
 type TResult = {pages: number; data: TZodFiltered[]}
 export const getFilteredArts = async (page: number, str:string):Promise<TResult> =>{
     const response = await axios.get(
@@ -8,9 +8,9 @@ export const getFilteredArts = async (page: number, str:string):Promise<TResult>
     if(response.status !== 200) {
         throw new Error('Failed')
     } else {
-        let data:any = response.data.data
-        let pages:number = response.data.pagination.total_pages
-        let resultT:TZodFiltered[] = data.map((e:any)=>ZodSchemeFiltered.parse(e))
+        const data:any = response.data.data
+        const pages:number = response.data.pagination.total_pages
+        const resultT:TZodFiltered[] = data.map((e:any)=>ZodSchemeFiltered.parse(e))
         return {pages, data: resultT}
     }
 }

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { StyledContainerD } from '../UI/StyledContainer';
+import { StyledContainerD } from '@UI/StyledContainer';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { IHeaderLink } from '../../models/IHeaderLink';
+import { IHeaderLink } from '@models/IHeaderLink';
 import HeaderLogo from '../Logo/Logo';
-import StyledLink from '../UI/StyledLink';
-import { useStore } from '../../utils/useStore';
+import StyledLink from '@UI/StyledLink';
+import { useStore } from '@utils/useStore';
 
 const Header: FC = () => {
   const store = useStore()

@@ -1,0 +1,41 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser", // Если используете TypeScript
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended", // Если используете TypeScript
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript" // Для TypeScript
+    ],
+    "plugins": [
+      "@typescript-eslint", // Если используете TypeScript
+      "import"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+    "@typescript-eslint/no-require-imports": "off",
+      "no-unused-vars": "warn",
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "import/order": ["error", { "groups": [["builtin", "external", "internal"]] }],
+      "import/no-unresolved": "error",
+      "import/no-duplicates": "error",
+      "@typescript-eslint/no-unused-vars": ["warn"]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    },
+    "ignorePatterns": ["node_modules/", "build/", "webpack.config.js"]
+}

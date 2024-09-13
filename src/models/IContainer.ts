@@ -7,6 +7,7 @@ type TWrap = 'wrap' | 'nowrap' | 'wrap-reverse;'
 export interface IContainer {
   $display?: TDisplay;
   $justifyc?: TJuC;
+  $justifycA?: TJuC;
   $justifyi?: string;
   $aligni?: TAlI;
   $gap?: TGap;
