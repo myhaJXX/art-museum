@@ -1,5 +1,6 @@
-import { createRequire, __dirname, module } from 'node:module';
-const require = createRequire(import.meta.url);
+/* globals __dirname, require, module */
+/* tslint:disable no-var-requires */
+/*'tslint @typescript-eslint/no-require-imports': 'off',*/
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 

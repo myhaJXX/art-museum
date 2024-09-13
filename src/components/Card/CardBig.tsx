@@ -7,8 +7,7 @@ import { faHeart as RegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import StyledLoader from '@UI/StyledLoader';
 import { useStore } from '@utils/useStore';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
+
 const checkLocalId = require('@utils/checkLocalId');
 
 const Card: FC<TZod & { featured: number[] }> = data => {

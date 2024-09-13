@@ -6,8 +6,7 @@ import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 import { useStore } from '@utils/useStore';
 import StyledLoader from '@UI/StyledLoader';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
+
 const missingText = require('@utils/MissingText');
 
 interface IProps {

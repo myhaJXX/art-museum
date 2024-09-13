@@ -5,13 +5,10 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    languageOptions: {
-      sourceType: 'script',
-    },
     rules: {
-      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-require-imports': 0,
       '@typescript-eslint/no-explicit-any': 'off',
     },
-    ignores: ['webpack.config.js', 'build/', 'node_modules'],
+    ignores: ['build/', 'node_modules', '*.config.cjs'],
   }
 );

@@ -6,8 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { StyledContainerD } from '@UI/StyledContainer';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useStore } from '@utils/useStore';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
+
 const missingText = require('@utils/MissingText');
 
 const CardLittle: FC<TZod> = data => {
