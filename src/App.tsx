@@ -14,7 +14,7 @@ const App: FC = () => {
     startDispatch({ type: 'ADD_FEATURED_LOCAL', payload: [] });
   }, []);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/art-museum">
       <Header />
       <Routes>
         <Route path="/" element={<PMain />} />
