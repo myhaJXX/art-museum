@@ -40,7 +40,7 @@ const InputCssBox = styled.div<CSSInputProps>`
     width: 400px;
     display: ${({ $active }) => ($active ? 'block' : 'none')};
     background-color: #fff;
-    z-index: 3;
+    z-index: 55;
     overflow-y: scroll;
     overflow-x: hidden;
 
