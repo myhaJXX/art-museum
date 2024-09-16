@@ -44,7 +44,7 @@ const StyledLink: FC<Iprops> = ({ title, icon, link, iconColor, onClick, value }
   return (
     <StyledLinkCss onClick={() => {
       nav(`${link}`)
-      onClick && onClick(value)
+      if(onClick) onClick(value)
     }}>
       {icon && <FontAwesomeIcon icon={icon} color={iconColor} />}
       <h4>{title}</h4>
