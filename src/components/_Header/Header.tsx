@@ -22,6 +22,7 @@ const Header: FC = () => {
     document.querySelector('body')?.setAttribute('style', `overflow: ${activeBurger ? 'hidden' : 'auto'}`)
   }, [activeBurger])
 
+
   return (
     <header style={{ borderColor: store.colorBg }}>
       <HeaderLogo />
