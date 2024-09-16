@@ -7,6 +7,7 @@ import PFeatured from './pages/PFeatured';
 import PArt from './pages/PArt';
 import { useStore } from '@utils/useStore';
 import ErrorPage from './pages/ErrorPage';
+import ErrorBoundaryGlobal from './components/Errors/GlobalError';
 
 const App: FC = () => {
   const startDispatch = useStore().FeaturedDispatch;
@@ -14,16 +15,18 @@ const App: FC = () => {
     startDispatch({ type: 'ADD_FEATURED_LOCAL', payload: [] });
   }, []);
   return (
-    <BrowserRouter basename="/art-museum">
-      <Header />
-      <Routes>
-        <Route path="/" element={<PMain />} />
-        <Route path="/featured" element={<PFeatured />} />
-        <Route path="/:id" element={<PArt />} />
-        <Route path="/*" element={<ErrorPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <ErrorBoundaryGlobal>
+      <BrowserRouter basename="/art-museum">
+        <Header />
+        <Routes>
+          <Route path="/" element={<PMain />} />
+          <Route path="/featured" element={<PFeatured />} />
+          <Route path="/:id" element={<PArt />} />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </ErrorBoundaryGlobal>
   );
 };
 

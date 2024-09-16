@@ -13,6 +13,7 @@ const Header: FC = () => {
     { title: 'Featured', href: '/featured', icon: faHeart, color: '#FF0000' },
     { title: 'Home', href: '/', color: '#000' },
   ];
+
   return (
     <header style={{ borderColor: store.colorBg }}>
       <HeaderLogo />
