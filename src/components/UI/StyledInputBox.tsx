@@ -93,14 +93,26 @@ const StyledInputBox: FC = () => {
     setTimeout(() => setActive(false), 250);
   };
 
+  useEffect(()=>{
+    setActive(errors.query ? false : true)
+  }, [errors.query])
+
   return (
     <InputCssBox $color={Context.colorAdd} $active={active}>
       <form>
         <InputCss
           placeholder="Enter a article"
-          onFocus={() => setActive(true)}
+          onFocus={() => setActive(errors.query ? false : true)}
           {...register('query', {
             required: 'Please enter a search query',
+            pattern: {
+              value: /^[A-Za-z0-9\s]+$/,
+              message: 'Use English letters please',
+            },
+            minLength: {
+              value: 3,
+              message: 'Minimal length of query - 3 symbols',
+            },
             onChange: handleSubmit(data => changeSearch(data.query)),
             onBlur: () => unBlur(),
           })}
@@ -108,8 +120,8 @@ const StyledInputBox: FC = () => {
         {errors.query && <p>{errors.query.message}</p>}
       </form>
       <div>
-        {searchData.map((e, i) => (
-          <StyledSearchCard id={e.id} title={e.title} key={i} />
+        {searchData.map((e) => (
+          <StyledSearchCard id={e.id} title={e.title} key={e.id} />
         ))}
       </div>
     </InputCssBox>
