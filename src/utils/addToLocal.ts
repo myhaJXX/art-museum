@@ -1,4 +1,4 @@
-import { TZod } from '@models/zod';
+import { TZod } from '@models/types/zod';
 
 export const addToLocal = (data: TZod) => {
   const eles: string | null = localStorage.getItem('featured');

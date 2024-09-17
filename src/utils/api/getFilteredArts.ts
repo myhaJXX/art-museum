@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TZodFiltered, ZodSchemeFiltered } from '@models/zodFilterd';
+import { TZodFiltered, ZodSchemeFiltered } from '@models/types/zodFilterd';
 type TResult = { pages: number; data: TZodFiltered[] };
 export const getFilteredArts = async (
   page: number,

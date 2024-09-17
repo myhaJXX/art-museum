@@ -6,9 +6,17 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   {
     rules: {
-      '@typescript-eslint/no-require-imports': 0,
+      '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
     },
     ignores: ['build/', 'node_modules', '*.config.cjs'],
+    plugins: {
+      "simple-import-sort": {
+        rules: {
+          "simple-import-sort/imports": "error",
+          "simple-import-sort/exports": "error"
+        }
+      }
+    },
   }
 );

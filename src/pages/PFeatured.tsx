@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import CardLittle from '../components/Card/CardLittle';
 import { StyledContainerD } from '../components/UI/StyledContainer';
 import { useStore } from '@utils/useStore';

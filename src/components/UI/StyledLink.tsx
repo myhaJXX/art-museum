@@ -1,7 +1,7 @@
+import { Dispatch, FC, SetStateAction } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Dispatch, FC, SetStateAction } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledLinkCss = styled.a`
@@ -35,17 +35,26 @@ interface Iprops {
   icon?: IconProp;
   iconColor?: string;
   link: string;
-  onClick?: Dispatch<SetStateAction<any>>,
-  value?: any
+  onClick?: Dispatch<SetStateAction<any>>;
+  value?: any;
 }
 
-const StyledLink: FC<Iprops> = ({ title, icon, link, iconColor, onClick, value }) => {
+const StyledLink: FC<Iprops> = ({
+  title,
+  icon,
+  link,
+  iconColor,
+  onClick,
+  value,
+}) => {
   const nav = useNavigate();
   return (
-    <StyledLinkCss onClick={() => {
-      nav(`${link}`)
-      if(onClick) onClick(value)
-    }}>
+    <StyledLinkCss
+      onClick={() => {
+        nav(`${link}`);
+        if (onClick) onClick(value);
+      }}
+    >
       {icon && <FontAwesomeIcon icon={icon} color={iconColor} />}
       <h4>{title}</h4>
     </StyledLinkCss>

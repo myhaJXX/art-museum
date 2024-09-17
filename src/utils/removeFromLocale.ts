@@ -1,4 +1,4 @@
-import { TZod } from '@models/zod';
+import { TZod } from '@models/types/zod';
 
 export const removeFromLocale = (id: number) => {
   const eles: string | null = localStorage.getItem('featured');

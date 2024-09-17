@@ -1,6 +1,6 @@
-import { IHeaderLink } from '@models/IHeaderLink';
+import { Dispatch, FC, SetStateAction } from 'react';
 import StyledLink from '@UI/StyledLink';
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import { IHeaderLink } from '@models/interfaces/IHeaderLink';
 import styled from 'styled-components';
 
 interface ICSSProps {
@@ -12,13 +12,13 @@ const CSSBurgerBox = styled.div<ICSSProps>`
   left: 0;
   height: 100vh;
   width: 100vw;
-  display: ${({$active}) => $active ? 'flex' : 'none'};
+  display: ${({ $active }) => ($active ? 'flex' : 'none')};
   align-items: flex-start;
   position: absolute;
   background-color: #00000080;
   z-index: 100;
 
-  >div{
+  > div {
     padding: 20px;
     display: grid;
     gap: 10px;
@@ -34,10 +34,10 @@ interface IProps {
 
 const StyledBurgerBox: FC<IProps> = ({ $active, links, setActive }) => {
   return (
-    <CSSBurgerBox $active={$active} onClick={()=>setActive(false)}>
-      <div onClick={(e)=>e.stopPropagation()}>
+    <CSSBurgerBox $active={$active} onClick={() => setActive(false)}>
+      <div onClick={e => e.stopPropagation()}>
         {links.map((e: IHeaderLink, i) => (
-            <StyledLink
+          <StyledLink
             onClick={setActive}
             value={false}
             title={e.title}
@@ -45,7 +45,7 @@ const StyledBurgerBox: FC<IProps> = ({ $active, links, setActive }) => {
             iconColor={e.color}
             icon={e.icon}
             key={i}
-            />
+          />
         ))}
       </div>
     </CSSBurgerBox>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import HeaderLogo from '../Logo/Logo';
 import StyledLink from '@UI/StyledLink';
 import { StyledContainerD } from '@UI/StyledContainer';

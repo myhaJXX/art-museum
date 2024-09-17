@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { StyledContainerD, StyledContainerS } from '@UI/StyledContainer';
-import { TZod } from '@models/zod';
+import StyledLoader from '@UI/StyledLoader';
+import { useStore } from '@utils/useStore';
+import { TZod } from '@models/types/zod';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
-import { useStore } from '@utils/useStore';
-import StyledLoader from '@UI/StyledLoader';
 
 const missingText = require('@utils/MissingText');
 

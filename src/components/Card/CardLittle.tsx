@@ -1,11 +1,11 @@
-import React, { FC, useEffect } from 'react';
-import StyledCardLittle from '../UI/StyledCardLittle';
-import { TZod } from '@models/zod';
+import { FC, useEffect } from 'react';
+import StyledCardLittle from '@UI/StyledCardLittle';
+import { StyledContainerD } from '@UI/StyledContainer';
+import { TZod } from '@models/types/zod';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { StyledContainerD } from '@UI/StyledContainer';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useStore } from '@utils/useStore';
+import CardImage from './CardImage';
 
 const missingText = require('@utils/MissingText');
 
@@ -15,18 +15,11 @@ const CardLittle: FC<TZod> = data => {
     ele!.innerHTML = missingText(data.description, 'Description');
   }, []);
 
-  const nav: NavigateFunction = useNavigate();
-
   const dispatch = useStore().FeaturedDispatch;
 
   return (
     <StyledCardLittle>
-      <img
-        loading="lazy"
-        src={`https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`}
-        alt=""
-        onClick={() => nav(`/${data.id}`)}
-      />
+      <CardImage id={data.id} image_id={data.image_id} />
 
       <div>
         <StyledContainerD

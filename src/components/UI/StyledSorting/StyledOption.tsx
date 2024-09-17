@@ -1,6 +1,6 @@
-import React, { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
+import { TSorts } from '@models/types/TSorts';
 import styled from 'styled-components';
-import { TSorts } from '@models/TSorts';
 
 interface ICSSOption {
   $active: boolean;

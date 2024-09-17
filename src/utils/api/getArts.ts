@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TZod, ZodScheme } from '@models/zod';
+import { TZod, ZodScheme } from '@models/types/zod';
 
 type TResult = { pages: number; data: TZod[] };
 

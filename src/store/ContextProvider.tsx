@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useReducer } from 'react';
+import { FC, PropsWithChildren, useReducer } from 'react';
 import Store from './store';
 import ThemeColors from './reducers/ColorsReducer';
 import { PagesReducer, ActivePage } from './reducers/PagesReducer';

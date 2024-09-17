@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { IButton } from '@models/IButton';
 import { useStore } from '@utils/useStore';
+import { IButton } from '@models/interfaces/IButton';
+import styled from 'styled-components';
 
 const Button = styled.button<IButton>`
   height: 30px;

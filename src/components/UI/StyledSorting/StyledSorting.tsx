@@ -1,7 +1,7 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react';
-import styled from 'styled-components';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import StyledOption from './StyledOption';
-import { TSorts, TSortsId } from '@models/TSorts';
+import { TSorts, TSortsId } from '@models/types/TSorts';
+import styled from 'styled-components';
 
 interface ICSSSorting {
   $active: boolean;

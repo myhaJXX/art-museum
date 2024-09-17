@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { TZod } from '../../models/zod';
+import { TZod } from '../../models/types/zod';
 import { addToLocal } from '../../utils/addToLocal';
 import { removeFromLocale } from '../../utils/removeFromLocale';
 

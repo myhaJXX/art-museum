@@ -1,6 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
 import { useStore } from '@utils/useStore';
+import styled, { keyframes } from 'styled-components';
 
 const animateCenter = keyframes`
   0% {

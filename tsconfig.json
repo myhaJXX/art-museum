@@ -17,7 +17,7 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "noEmit": true,
-      "jsx": "react",
+      "jsx": "react-jsx",
       "paths": {
         "@UI/*": ["./src/components/UI/*"],
         "@models/*": ["./src/models/*"],

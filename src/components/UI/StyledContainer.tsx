@@ -1,6 +1,6 @@
+import { IContainer } from '@models/interfaces/IContainer';
+import { IAddGrid } from '@models/interfaces/IAddGrid';
 import styled, { css } from 'styled-components';
-import { IContainer } from '@models/IContainer';
-import { IAddGrid } from '@models/IAddGrid';
 
 const StyledContainer = css<IContainer>`
   height: fit-content;

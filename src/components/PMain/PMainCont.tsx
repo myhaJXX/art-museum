@@ -1,13 +1,13 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { StyledContainerS } from '@UI/StyledContainer';
-import getArts from '@utils/getArts';
-import { TZod } from '@models/zod';
 import PMainBox from './PMainBox';
 import StyledLoader from '@UI/StyledLoader';
 import PMainButtonsCont from './PMainButtonsCont';
 import StyledInputBox from '@UI/StyledInputBox';
 import StyledSorting from '@UI/StyledSorting/StyledSorting';
+import getArts from '@utils/api/getArts';
 import { useStore } from '@utils/useStore';
+import { TZod } from '@models/types/zod';
 
 const PMainCont: FC = () => {
   const Context = useStore();

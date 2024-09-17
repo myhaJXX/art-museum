@@ -1,7 +1,7 @@
-import React, { FC, useMemo, useState, useEffect } from 'react';
+import { FC, useMemo, useState, useEffect } from 'react';
 import { StyledContainerD } from '@UI/StyledContainer';
-import { TZod } from '@models/zod';
 import Card from '../Card/CardBig';
+import { TZod } from '@models/types/zod';
 
 type Props = {
   data: TZod[];
