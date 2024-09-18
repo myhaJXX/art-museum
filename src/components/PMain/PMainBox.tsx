@@ -1,6 +1,7 @@
 import { FC, useMemo, useState, useEffect } from 'react';
 import { StyledContainerD } from '@UI/StyledContainer';
 import Card from '../Card/CardBig';
+import { sortData } from '@utils/sortData';
 import { TZod } from '@models/types/zod';
 
 type Props = {
@@ -21,36 +22,9 @@ const PMainBox: FC<Props> = ({ data, sorting }) => {
   const [copy, setCopy] = useState<TZod[]>([]);
 
   useEffect(() => {
-    const sorted: TZod[] = addSort(data);
+    const sorted: TZod[] = sortData(data, sorting);
     setCopy([...sorted]);
   }, [sorting, data]);
-
-  const addSort = (data: TZod[]): TZod[] => {
-    switch (sorting) {
-      case 0:
-        return data.sort((a, b) => {
-          const titleA: string = a.title?.toLowerCase() || '';
-          const titleB: string = b.title?.toLowerCase() || '';
-          return titleA.localeCompare(titleB);
-        });
-
-      case 1:
-        return data.sort((a, b) => {
-          const titleA: string = a.artist_title || '';
-          const titleB: string = b.artist_title || '';
-          return titleA.localeCompare(titleB);
-        });
-
-      case 2:
-        return data.sort((a, b) => {
-          const n1: number = a.date_start || 0;
-          const n2: number = b.date_start || 0;
-          return n1 - n2;
-        });
-      default:
-        return data;
-    }
-  };
 
   return (
     <StyledContainerD

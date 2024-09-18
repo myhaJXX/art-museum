@@ -31,10 +31,6 @@ const App: FC = () => {
           {routes.map((e: IRoute) => (
             <Route path={e.path} element={e.element} key={e.path} />
           ))}
-          {/* <Route path="/" element={<PMain />} />
-          <Route path="/featured" element={<PFeatured />} />
-          <Route path="/:id" element={<PArt />} />
-          <Route path="/*" element={<ErrorPage />} /> */}
         </Routes>
         <Footer />
       </BrowserRouter>

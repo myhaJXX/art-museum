@@ -1,10 +1,10 @@
 import { FC, useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import StyledSearchCard from './StyledSearchCard';
 import { getFilteredArts } from '@utils/api/getFilteredArts';
 import { useStore } from '@utils/useStore';
 import { TZodFiltered } from '@models/types/zodFilterd';
 import styled from 'styled-components';
+import StyledInputData from './StyledInputData';
 
 interface CSSInputProps {
   $color: string;
@@ -119,11 +119,7 @@ const StyledInputBox: FC = () => {
         />
         {errors.query && <p>{errors.query.message}</p>}
       </form>
-      <div>
-        {searchData.map((e) => (
-          <StyledSearchCard id={e.id} title={e.title} key={e.id} />
-        ))}
-      </div>
+      <StyledInputData data={searchData}/>
     </InputCssBox>
   );
 };

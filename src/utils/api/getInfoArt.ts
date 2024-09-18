@@ -1,9 +1,10 @@
 import { TZod } from '@models/types/zod';
 import axios from 'axios';
 import { ZodScheme } from '@models/types/zod';
+import { ArtApi } from '../../constants/artApi.constant';
 export const getInfoArt = async (id: number): Promise<TZod> => {
   const response = await axios.get(
-    `https://api.artic.edu/api/v1/artworks/${id}`
+    `${ArtApi}/${id}`
   );
   if (response.status !== 200) {
     throw new Error('Axios is failed on page of art');
