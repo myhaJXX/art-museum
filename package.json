@@ -26,7 +26,7 @@
     "prepare": "husky install",
     "build": "webpack build --mode production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d docs"
+    "deploy": "gh-pages -d build -b gh-pages"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
