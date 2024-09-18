@@ -25,7 +25,7 @@ const App: FC = () => {
 
   return (
     <ErrorBoundaryGlobal>
-      <BrowserRouter basename="/art-museum">
+      <BrowserRouter basename="/">
         <Header />
         <Routes>
           {routes.map((e: IRoute) => (
