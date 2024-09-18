@@ -37,8 +37,7 @@ const PMainCont: FC = () => {
 
   return (
     <StyledContainerS $display="grid" $gap="10px">
-
-      <PMainTitle/>
+      <PMainTitle />
 
       <StyledInputBox />
       <StyledSorting sorting={sorting} setSorting={setSorting} />

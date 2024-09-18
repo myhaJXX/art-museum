@@ -11,12 +11,12 @@ export default tseslint.config(
     },
     ignores: ['build/', 'node_modules', '*.config.cjs'],
     plugins: {
-      "simple-import-sort": {
+      'simple-import-sort': {
         rules: {
-          "simple-import-sort/imports": "error",
-          "simple-import-sort/exports": "error"
-        }
-      }
+          'simple-import-sort/imports': 'error',
+          'simple-import-sort/exports': 'error',
+        },
+      },
     },
   }
 );

@@ -5,9 +5,7 @@ import { ArtApi } from '../../constants/artApi.constant';
 type TResult = { pages: number; data: TZod[] };
 
 const getArts = async (page: number): Promise<TResult> => {
-  const response = await axios.get(
-    `${ArtApi}?page=${page}&limit=20`
-  );
+  const response = await axios.get(`${ArtApi}?page=${page}&limit=20`);
   if (response.status !== 200) {
     throw new Error('Axios is failed');
   } else {

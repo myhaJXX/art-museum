@@ -93,9 +93,9 @@ const StyledInputBox: FC = () => {
     setTimeout(() => setActive(false), 250);
   };
 
-  useEffect(()=>{
-    setActive(errors.query ? false : true)
-  }, [errors.query])
+  useEffect(() => {
+    setActive(errors.query ? false : true);
+  }, [errors.query]);
 
   return (
     <InputCssBox $color={Context.colorAdd} $active={active}>
@@ -119,7 +119,7 @@ const StyledInputBox: FC = () => {
         />
         {errors.query && <p>{errors.query.message}</p>}
       </form>
-      <StyledInputData data={searchData}/>
+      <StyledInputData data={searchData} />
     </InputCssBox>
   );
 };
