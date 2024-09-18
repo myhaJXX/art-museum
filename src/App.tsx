@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import PMain from './pages/PMain';
 import Header from './components/_Header/Header';
 import Footer from './components/_Footer/Footer';
@@ -25,7 +25,7 @@ const App: FC = () => {
 
   return (
     <ErrorBoundaryGlobal>
-      <BrowserRouter basename="/">
+      <HashRouter basename="/">
         <Header />
         <Routes>
           {routes.map((e: IRoute) => (
@@ -33,7 +33,7 @@ const App: FC = () => {
           ))}
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </ErrorBoundaryGlobal>
   );
 };
